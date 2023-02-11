@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"io"
 	"net/http"
 
@@ -13,7 +14,11 @@ func main() {
 		w.Write([]byte(msg))
 	})
 	http.HandleFunc("/echo", func(w http.ResponseWriter, req *http.Request) {
-		io.Copy(w, req.Body)
+		b, err := io.ReadAll(req.Body)
+		if err != nil {
+			panic(err)
+		}
+		io.Copy(w, bytes.NewReader(b))
 	})
 	workers.Serve(nil) // use http.DefaultServeMux
 }
