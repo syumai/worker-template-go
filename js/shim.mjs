@@ -1,8 +1,13 @@
 import "./polyfill_performance.js";
 import "./wasm_exec.js";
-import mod from "../dist/app.wasm";
 
 const go = new Go();
+
+let mod;
+
+export function init(m) {
+  mod = m;
+}
 
 async function run() {
   const readyPromise = new Promise((resolve) => {
