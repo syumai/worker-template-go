@@ -1,5 +1,12 @@
 # worker-template-go
 
+* This project has been moved into [workers](https://github.com/syumai/workers/tree/main/_templates/cloudflare/worker-go) repository.
+
+---
+
+<details>
+<summary>Legacy Docmentation</summary>
+
 - A template for starting a Cloudflare Worker project with Go.
 - This template uses [`workers`](https://github.com/syumai/workers) package to run an HTTP server.
 
@@ -56,3 +63,5 @@ Hello!
 $ curl -X POST -d "test message" http://localhost:8787/echo
 test message
 ```
+
+</details>
